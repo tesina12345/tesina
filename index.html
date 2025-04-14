@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tesina E-commerce – Alessandro Tremolada</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusione di Chart.js -->
   <style>
     body {
       font-family: "Georgia", serif;
@@ -28,7 +27,6 @@
       background-color: #1a1a1a;
       padding: 10px 0;
       z-index: 10000;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav ul {
@@ -82,12 +80,21 @@
       padding: 0 20px;
     }
 
-    .section {
-      display: none;
+    section {
+      margin-bottom: 60px;
     }
 
-    .active-section {
-      display: block;
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 8px;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      font-size: 1.3em;
+      color: #1a1a1a;
     }
 
     footer {
@@ -133,10 +140,27 @@
       }
     }
 
-    /* Stilizzazione del grafico */
-    .chart-container {
-      width: 80%;
-      margin: 40px auto;
+    /* ANIMAZIONE NOME A SCHERMO */
+    #nameAnimation {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3em;
+      font-weight: bold;
+      color: #1a1a1a;
+      animation: slideDown 3s ease-in-out forwards;
+    }
+
+    @keyframes slideDown {
+      0% {
+        transform: translateX(-50%) translateY(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -150,16 +174,21 @@
   <!-- Menu di navigazione -->
   <nav>
     <ul>
-      <li><a href="javascript:void(0)" onclick="showSection('introduzione')">Introduzione</a></li>
-      <li><a href="javascript:void(0)" onclick="showSection('cos_e')">Cos'è l'e-commerce</a></li>
-      <li><a href="javascript:void(0)" onclick="showSection('tipologie')">Tipologie di e-commerce</a></li>
-      <li><a href="javascript:void(0)" onclick="showSection('piattaforme')">Piattaforme di E-commerce</a></li>
+      <li><a href="#introduzione">Introduzione</a></li>
+      <li><a href="#cos'e">Cos'è l'e-commerce</a></li>
+      <li><a href="#tipologie">Tipologie di e-commerce</a></li>
+      <li><a href="#piattaforme">Piattaforme di E-commerce</a></li>
     </ul>
   </nav>
 
-  <!-- Animazione di benvenuto con solo "Buongiorno" -->
+  <!-- Animazione di benvenuto -->
   <div id="welcome">
-    <h1>Buongiorno</h1>
+    <h1>Buongiorno, Alessandro Tremolada</h1>
+  </div>
+
+  <!-- Animazione del nome -->
+  <div id="nameAnimation">
+    Alessandro Tremolada
   </div>
 
   <header>
@@ -168,76 +197,49 @@
   </header>
 
   <main>
-    <!-- Sezione Introduzione -->
-    <div class="section" id="introduzione">
+    <section id="introduzione">
       <h2>Introduzione</h2>
       <p>Il commercio elettronico, o e-commerce, è una delle industrie più in crescita e ha cambiato radicalmente il modo in cui consumiamo prodotti e servizi. In questa tesina esploreremo le principali piattaforme di e-commerce, i modelli di business utilizzati e le implicazioni di queste piattaforme sul mercato globale.</p>
-    </div>
+    </section>
 
-    <!-- Sezione Cos'è l'E-commerce -->
-    <div class="section" id="cos_e">
+    <section id="cos'e">
       <h2>Cos'è l'e-commerce</h2>
       <p>L'e-commerce è il processo di acquisto e vendita di beni e servizi tramite Internet. Può avvenire tra imprese (B2B), tra imprese e consumatori (B2C), o tra consumatori (C2C). Le piattaforme e-commerce offrono a venditori e acquirenti un mezzo efficiente per scambiare beni e servizi senza la necessità di una presenza fisica.</p>
-    </div>
+    </section>
 
-    <!-- Sezione Tipologie di E-commerce -->
-    <div class="section" id="tipologie">
+    <section id="tipologie">
       <h2>Tipologie di E-commerce</h2>
       <h3>B2C (Business to Consumer)</h3>
-      <p>Il modello B2C è il più comune, dove le aziende vendono direttamente ai consumatori. Esempi di piattaforme che operano in questo modello sono Amazon e eBay.</p>
+      <p>Il modello B2C è il più comune, dove le aziende vendono direttamente ai consumatori. Esempi di piattaforme che operano in questo modello sono Amazon e eBay. In questo modello, l'azienda ha il controllo completo sulle vendite, la gestione delle scorte e le politiche di ritorno, e può personalizzare l'esperienza di acquisto per ogni consumatore.</p>
 
       <h3>B2B (Business to Business)</h3>
-      <p>In questo modello, le aziende vendono beni e servizi ad altre aziende. Esempi di piattaforme B2B includono Alibaba, ThomasNet e Made-in-China.</p>
+      <p>In questo modello, le aziende vendono beni e servizi ad altre aziende. Le piattaforme B2B sono meno visibili al consumatore finale, ma sono vitali per la catena di approvvigionamento globale. Esempi di piattaforme B2B includono Alibaba, ThomasNet e Made-in-China. Questi siti si concentrano sulla vendita di volumi all'ingrosso a rivenditori o altre imprese.</p>
 
       <h3>C2C (Consumer to Consumer)</h3>
-      <p>Le piattaforme C2C consentono ai consumatori di vendere direttamente ad altri consumatori. Un esempio famoso di questo modello è eBay.</p>
-    </div>
+      <p>Le piattaforme C2C consentono ai consumatori di vendere direttamente ad altri consumatori. Un esempio famoso di questo modello è eBay. Altre piattaforme C2C includono Craigslist e Poshmark. Gli utenti possono vendere e acquistare articoli usati o fatti a mano, spesso a prezzi inferiori rispetto a quelli dei negozi tradizionali.</p>
+    </section>
 
-    <!-- Sezione Piattaforme di E-commerce -->
-    <div class="section" id="piattaforme">
+    <section id="piattaforme">
       <h2>Piattaforme di E-commerce</h2>
+
       <h3>Amazon</h3>
-      <p>Amazon è il più grande marketplace al mondo, fondato nel 1994 da Jeff Bezos. La piattaforma permette a venditori di terze parti di vendere i propri prodotti accanto a quelli di Amazon.</p>
+      <p>Amazon è il più grande marketplace al mondo, fondato nel 1994 da Jeff Bezos. La piattaforma permette a venditori di terze parti di vendere i propri prodotti accanto a quelli di Amazon. La gestione dell'inventario, la spedizione e il servizio clienti possono essere gestiti direttamente da Amazon tramite il servizio FBA (Fulfillment by Amazon). In cambio, Amazon addebita commissioni che variano in base al tipo di prodotto e al volume di vendite.</p>
 
       <h3>eBay</h3>
-      <p>eBay è una piattaforma che consente la vendita tramite aste o prezzo fisso. È adatta per oggetti usati, da collezione e rari.</p>
+      <p>eBay è una piattaforma che consente la vendita tramite aste o prezzo fisso. È adatta per oggetti usati, da collezione e rari, ma anche per prodotti nuovi. I venditori possono stabilire il prezzo o optare per un'asta, consentendo agli acquirenti di fare offerte. eBay addebita una commissione sulle vendite finali, che varia a seconda della categoria del prodotto. È una delle prime piattaforme che ha introdotto il concetto di marketplace online.</p>
 
-      <div class="chart-container">
-        <canvas id="marketplaceChart"></canvas>
-      </div>
+      <h3>Etsy</h3>
+      <p>Etsy è una piattaforma di e-commerce orientata principalmente ai prodotti fatti a mano, vintage e artigianali. Molti venditori sono piccole imprese o artigiani indipendenti che usano Etsy come vetrina per vendere i loro prodotti. Etsy addebita una tariffa per ogni annuncio pubblicato e una commissione sulla vendita. Inoltre, offre strumenti integrati per la gestione del negozio e per la promozione del brand.</p>
 
-      <script>
-        const ctx = document.getElementById('marketplaceChart').getContext('2d');
-        const marketplaceChart = new Chart(ctx, {
-          type: 'pie',
-          data: {
-            labels: ['Amazon', 'eBay', 'Etsy', 'AliExpress', 'Shopify', 'Taobao'],
-            datasets: [{
-              label: 'Vendite (in miliardi di $)',
-              data: [470, 84, 13, 80, 50, 38],
-              backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#F0F033', '#8F33FF', '#FF33A0'],
-              borderColor: ['#FF5733', '#33FF57', '#3357FF', '#F0F033', '#8F33FF', '#FF33A0'],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'top',
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(tooltipItem) {
-                    return tooltipItem.label + ': $' + tooltipItem.raw + 'M';
-                  }
-                }
-              }
-            }
-          }
-        });
-      </script>
-    </div>
+      <h3>AliExpress</h3>
+      <p>AliExpress è una piattaforma di e-commerce che fa parte del gruppo Alibaba, orientata principalmente all'esportazione di prodotti cinesi a prezzi molto competitivi. AliExpress offre una vasta gamma di prodotti a basso costo, spesso acquistati tramite dropshipping. La piattaforma si è fatta notare per la possibilità di acquistare prodotti a prezzi estremamente bassi, ma con tempi di spedizione più lunghi rispetto ad altri marketplace occidentali.</p>
+
+      <h3>Shopify</h3>
+      <p>Shopify non è un marketplace, ma una piattaforma per creare il proprio negozio online. Consente alle aziende di configurare un sito web di e-commerce personalizzato, con funzionalità avanzate per la gestione degli ordini, il marketing e l'analisi dei dati. Shopify è perfetto per coloro che vogliono avere il controllo completo sul proprio marchio e sulle operazioni di vendita online, senza dover dipendere da un marketplace esterno.</p>
+
+      <h3>Taobao</h3>
+      <p>Taobao è una delle piattaforme di e-commerce più grandi in Cina, ed è di proprietà del gruppo Alibaba. A differenza di Amazon, Taobao non si concentra principalmente su vendite a livello globale, ma è orientato al mercato cinese. È un modello B2C e C2C, dove sia le piccole imprese che i consumatori possono vendere prodotti. La piattaforma è altamente integrata con i servizi di pagamento di Alipay, che consente pagamenti facili e sicuri.</p>
+    </section>
   </main>
 
   <footer>
@@ -250,17 +252,6 @@
       const welcome = document.getElementById('welcome');
       if (welcome) welcome.remove();
     }, 4000);
-
-    function showSection(sectionId) {
-      // Nascondi tutte le sezioni
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.remove('active-section'));
-      // Mostra la sezione selezionata
-      document.getElementById(sectionId).classList.add('active-section');
-    }
-
-    // Mostra la sezione "Introduzione" per default
-    showSection('introduzione');
   </script>
 
 </body>
