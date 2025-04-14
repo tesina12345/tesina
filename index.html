@@ -28,6 +28,7 @@
       background-color: #1a1a1a;
       padding: 10px 0;
       z-index: 10000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav ul {
@@ -141,29 +142,6 @@
       }
     }
 
-    /* ANIMAZIONE NOME A SCHERMO */
-    #nameAnimation {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 3em;
-      font-weight: bold;
-      color: #1a1a1a;
-      animation: slideDown 3s ease-in-out forwards;
-    }
-
-    @keyframes slideDown {
-      0% {
-        transform: translateX(-50%) translateY(-100px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-      }
-    }
-
     /* Stilizzazione del grafico */
     .chart-container {
       width: 80%;
@@ -188,14 +166,9 @@
     </ul>
   </nav>
 
-  <!-- Animazione di benvenuto -->
+  <!-- Animazione di benvenuto con solo "Buongiorno" -->
   <div id="welcome">
-    <h1>Buongiorno, Alessandro Tremolada</h1>
-  </div>
-
-  <!-- Animazione del nome -->
-  <div id="nameAnimation">
-    Alessandro Tremolada
+    <h1>Buongiorno</h1>
   </div>
 
   <header>
