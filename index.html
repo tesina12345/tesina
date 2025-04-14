@@ -1,276 +1,220 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tesina sull'E-commerce – Alessandro Tremolada</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            margin-top: 0;
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        /* Animazione di entrata per il testo "Buongiorno a tutti" */
-        #intro-text {
-            font-size: 2em;
-            color: #333;
-            opacity: 0; /* Inizialmente il testo è invisibile */
-            animation: fadeIn 3s forwards; /* Applicazione dell'animazione */
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px); /* Partenza dall'alto */
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0); /* Posizione finale */
-            }
-        }
-
-        nav {
-            background-color: #444;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.1em;
-            padding: 10px;
-            display: block;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: #666;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 60px;
-        }
-
-        h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        h3 {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #444;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-        }
-
-        .download {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .download a {
-            display: inline-block;
-            background-color: #444;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .download a:hover {
-            background-color: #666;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tesina E-commerce – Alessandro Tremolada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #2c2c2c;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+    }
+    nav ul li a:hover {
+      background-color: #444;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 100px 20px 40px;
+      margin-top: 60px;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .chart {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    #welcome {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOut 2s ease 2s forwards;
+    }
+    #welcome h1 {
+      font-size: 3.5em;
+      color: #222;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawCharts);
+    function drawCharts() {
+      drawChart('amazonChart', 'Amazon', [['2018', 150], ['2019', 200], ['2020', 280], ['2021', 350], ['2022', 450], ['2023', 500]]);
+      drawChart('ebayChart', 'eBay', [['2018', 90], ['2019', 110], ['2020', 130], ['2021', 125], ['2022', 140], ['2023', 145]]);
+      drawChart('etsyChart', 'Etsy', [['2018', 25], ['2019', 30], ['2020', 40], ['2021', 50], ['2022', 60], ['2023', 70]]);
+      drawChart('aliexpressChart', 'AliExpress', [['2018', 100], ['2019', 120], ['2020', 180], ['2021', 220], ['2022', 250], ['2023', 270]]);
+    }
+    function drawChart(id, title, dataRows) {
+      const data = google.visualization.arrayToDataTable([
+        ['Anno', 'Vendite ($ milioni)'], ...dataRows
+      ]);
+      const options = {
+        title: `Vendite Annuali - ${title}`,
+        chartArea: { width: '60%' },
+        hAxis: { title: 'Vendite ($ milioni)', minValue: 0 },
+        vAxis: { title: 'Anno' }
+      };
+      const chart = new google.visualization.BarChart(document.getElementById(id));
+      chart.draw(data, options);
+    }
+  </script>
 </head>
 
 <body>
 
-    <!-- Aggiungi l'elemento audio per la musica di sottofondo -->
-    <audio autoplay loop>
-        <source src="musica-chill.mp3" type="audio/mp3">
-        Il tuo browser non supporta il tag audio.
-    </audio>
+  <!-- Musica chill -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
+  </audio>
 
-    <!-- Intestazione -->
-    <header>
-        <h1>Tesina sull'E-commerce</h1>
-        <p>Alessandro Tremolada – Esame di Terza Media</p>
-    </header>
+  <!-- Animazione di benvenuto -->
+  <div id="welcome">
+    <h1>Buongiorno a tutti</h1>
+  </div>
 
-    <!-- Animazione di entrata del testo "Buongiorno a tutti" -->
-    <div id="intro-text">
-        <p>Buongiorno a tutti!</p>
-    </div>
+  <!-- Menu -->
+  <nav>
+    <ul>
+      <li><a href="#introduzione">Introduzione</a></li>
+      <li><a href="#piattaforme">Piattaforme</a></li>
+      <li><a href="#grafici">Grafici</a></li>
+      <li><a href="#conclusione">Conclusione</a></li>
+    </ul>
+  </nav>
 
-    <!-- Menu di navigazione -->
-    <nav>
-        <ul>
-            <li><a href="#introduzione">Introduzione</a></li>
-            <li><a href="#cos-e">Cos'è l'E-commerce</a></li>
-            <li><a href="#tipologie">Tipologie di E-commerce</a></li>
-            <li><a href="#vantaggi">Vantaggi e Svantaggi</a></li>
-            <li><a href="#piattaforme">Piattaforme di E-commerce</a></li>
-            <li><a href="#futuro">Il Futuro dell'E-commerce</a></li>
-            <li><a href="#conclusioni">Conclusioni</a></li>
-        </ul>
-    </nav>
+  <header>
+    <h1>Alessandro Tremolada</h1>
+    <p>Tesina – E-commerce</p>
+  </header>
 
-    <main>
+  <section id="introduzione">
+    <h2>Introduzione all’E-commerce</h2>
+    <p>
+      L’e-commerce è il commercio elettronico, cioè l’acquisto e la vendita di beni o servizi tramite internet. Ha rivoluzionato il modo di fare business, offrendo comodità ai consumatori e nuove opportunità alle imprese.
+    </p>
+    <p>
+      Le principali tipologie sono:
+      <ul>
+        <li><strong>B2C</strong> – Business to Consumer</li>
+        <li><strong>B2B</strong> – Business to Business</li>
+        <li><strong>C2C</strong> – Consumer to Consumer</li>
+      </ul>
+    </p>
+  </section>
 
-        <!-- Sezione Introduzione -->
-        <section id="introduzione">
-            <h2>1. Introduzione</h2>
-            <p>
-                L'e-commerce, o commercio elettronico, è uno dei fenomeni più significativi degli ultimi decenni. Ha cambiato radicalmente il modo in cui le persone fanno acquisti e come le aziende operano. Grazie alla diffusione di Internet, le piattaforme di e-commerce consentono agli utenti di comprare e vendere beni e servizi in modo rapido e sicuro, senza doversi recare in un negozio fisico. L'e-commerce sta crescendo rapidamente e sta influenzando quasi ogni aspetto della nostra vita quotidiana, dalla vendita al dettaglio alla distribuzione di contenuti digitali.
-            </p>
-        </section>
+  <section id="piattaforme">
+    <h2>Piattaforme principali</h2>
+    <h3>Amazon</h3>
+    <p>
+      Il più grande marketplace globale. I venditori usano FBA per delegare logistica e spedizione. Amazon trattiene commissioni sulle vendite.
+    </p>
 
-        <!-- Sezione Cos'è l'E-commerce -->
-        <section id="cos-e">
-            <h2>2. Cos'è l'E-commerce</h2>
-            <p>
-                L'e-commerce è il processo di acquisto e vendita di beni e servizi attraverso Internet. Esso si articola in varie tipologie che comprendono sia transazioni B2C (Business-to-Consumer), dove le aziende vendono direttamente ai consumatori, sia transazioni B2B (Business-to-Business), dove le aziende vendono a altre aziende. Le piattaforme di e-commerce, come Amazon, eBay, e Etsy, sono esempi concreti di come l’e-commerce stia evolvendo a livello globale.
-            </p>
-            <p>
-                I vantaggi dell'e-commerce includono la possibilità di fare acquisti in qualsiasi momento e luogo, la riduzione dei costi legati alla gestione di un punto vendita fisico, e la possibilità di raggiungere un pubblico globale. Tuttavia, ci sono anche degli svantaggi, come la mancanza di interazione fisica con i prodotti e i rischi legati alla sicurezza delle transazioni.
-            </p>
-        </section>
+    <h3>eBay</h3>
+    <p>
+      Consente vendite tramite aste o prezzo fisso. Ideale anche per l’usato. I venditori pagano una percentuale sul valore finale.
+    </p>
 
-        <!-- Sezione Tipologie di E-commerce -->
-        <section id="tipologie">
-            <h2>3. Tipologie di E-commerce</h2>
-            <p>L'e-commerce può essere suddiviso in vari modelli, tra cui:</p>
-            <ul>
-                <li><strong>B2C (Business to Consumer)</strong>: Questo è il modello più comune, dove le aziende vendono direttamente ai consumatori. Esempi di piattaforme: Amazon, eBay, Zara.</li>
-                <li><strong>B2B (Business to Business)</strong>: Le aziende vendono beni o servizi ad altre aziende. Ad esempio, Alibaba.</li>
-                <li><strong>C2C (Consumer to Consumer)</strong>: Questo modello permette ai consumatori di vendere direttamente ad altri consumatori. Esempi: eBay, Subito.it.</li>
-                <li><strong>C2B (Consumer to Business)</strong>: I consumatori vendono i propri beni o servizi alle aziende. Esempi: piattaforme di freelance come Upwork e Fiverr.</li>
-                <li><strong>G2C (Government to Consumer)</strong>: Servizi pubblici offerti dai governi ai cittadini, come il pagamento delle tasse o la richiesta di documenti ufficiali online.</li>
-            </ul>
-        </section>
+    <h3>Etsy</h3>
+    <p>
+      Specializzato in artigianato, handmade e vintage. Etsy addebita una piccola tariffa di inserzione e una commissione sulle vendite.
+    </p>
 
-        <!-- Sezione Vantaggi e Svantaggi -->
-        <section id="vantaggi">
-            <h2>4. Vantaggi e Svantaggi dell'E-commerce</h2>
-            <h3>Vantaggi</h3>
-            <ul>
-                <li>Accessibilità 24 ore su 24, 7 giorni su 7: i consumatori possono fare acquisti in qualsiasi momento, senza limitazioni di orario.</li>
-                <li>Comodità: è possibile acquistare da casa propria o ovunque ci si trovi, senza doversi recare fisicamente in negozio.</li>
-                <li>Vasta scelta di prodotti: i negozi online offrono una gamma più ampia di prodotti rispetto ai negozi fisici, e spesso a prezzi competitivi.</li>
-                <li>Confronto facile tra prezzi e prodotti: gli utenti possono facilmente confrontare diverse opzioni e fare acquisti più consapevoli.</li>
-            </ul>
-            <h3>Svantaggi</h3>
-            <ul>
-                <li>Assenza di interazione fisica con il prodotto: non poter toccare e vedere i prodotti prima dell'acquisto può essere un limite per alcuni consumatori.</li>
-                <li>Rischi di sicurezza: nonostante le misure di sicurezza, ci sono sempre rischi legati alla protezione delle informazioni personali e dei pagamenti.</li>
-                <li>Tempi di spedizione: a meno che non venga utilizzato un servizio di spedizione espressa, i tempi di consegna possono essere più lunghi rispetto all'acquisto in negozio.</li>
-                <li>Problemi di restituzione dei prodotti: la gestione dei resi può essere più complicata negli acquisti online, specialmente se si acquistano articoli di valore elevato.</li>
-            </ul>
-        </section>
+    <h3>AliExpress</h3>
+    <p>
+      Parte del gruppo Alibaba, collega venditori cinesi con il resto del mondo. Usato per dropshipping, con prezzi molto competitivi.
+    </p>
 
-        <!-- Sezione Piattaforme di E-commerce -->
-        <section id="piattaforme">
-            <h2>5. Piattaforme di E-commerce</h2>
-            <h3>Amazon</h3>
-            <p>
-                Amazon è la piattaforma di e-commerce più grande e popolare al mondo. Fondata da Jeff Bezos nel 1994, ha rivoluzionato il settore offrendo un vastissimo assortimento di prodotti e servizi. Amazon ha anche sviluppato un sistema di logistica avanzata che include il servizio "Fulfillment by Amazon" (FBA), che permette ai venditori di affidare ad Amazon la gestione degli ordini, della spedizione e del servizio clienti.
-            </p>
+    <h3>Shopify</h3>
+    <p>
+      Permette di creare un proprio negozio online. Offre autonomia totale, ma è necessario gestire tutto: prodotti, pagamenti, spedizioni.
+    </p>
 
-            <h3>eBay</h3>
-            <p>
-                eBay è una piattaforma di e-commerce che consente agli utenti di vendere e acquistare prodotti sia nuovi che usati. La caratteristica distintiva di eBay è che permette la vendita tramite aste, dando la possibilità agli acquirenti di fare offerte su prodotti specifici. eBay è molto popolare per gli oggetti da collezione e per i beni usati.
-            </p>
+    <h3>Taobao</h3>
+    <p>
+      Marketplace cinese simile ad Amazon, ma più focalizzato sul mercato asiatico. Gestito da Alibaba Group.
+    </p>
+  </section>
 
-            <h3>Shopify</h3>
-            <p>
-                Shopify è una piattaforma di e-commerce che permette a chiunque di creare e gestire un proprio negozio online. È una delle piattaforme SaaS (Software as a Service) più utilizzate dalle piccole e medie imprese. Shopify offre una vasta gamma di strumenti per personalizzare il negozio online, gestire le vendite e le transazioni, e analizzare i dati di performance.
-            </p>
+  <section id="grafici">
+    <h2>Grafici di Vendita Annuale</h2>
+    <div id="amazonChart" class="chart"></div>
+    <div id="ebayChart" class="chart"></div>
+    <div id="etsyChart" class="chart"></div>
+    <div id="aliexpressChart" class="chart"></div>
+  </section>
 
-            <h3>AliExpress</h3>
-            <p>
-                AliExpress è una piattaforma di e-commerce di proprietà del gigante cinese Alibaba. Permette alle piccole imprese e ai produttori cinesi di vendere direttamente a consumatori in tutto il mondo. AliExpress è noto per i prezzi bassi, ma la qualità dei prodotti e i tempi di spedizione possono variare.
-            </p>
-        </section>
+  <section id="conclusione">
+    <h2>Conclusione</h2>
+    <p>
+      L'e-commerce è in continua crescita. Le aziende devono adattarsi ai nuovi comportamenti dei consumatori, offrendo esperienze digitali sempre più personalizzate ed efficienti. Il futuro sarà sempre più automatizzato, globale e centrato sul cliente.
+    </p>
+  </section>
 
-        <!-- Sezione Il Futuro dell'E-commerce -->
-        <section id="futuro">
-            <h2>6. Il Futuro dell'E-commerce</h2>
-            <p>
-                Il futuro dell'e-commerce è strettamente legato all'innovazione tecnologica. Si prevede che l'uso di intelligenza artificiale (AI) per migliorare l'esperienza dell'utente e per gestire la logistica sarà sempre più diffuso. Le tecnologie emergenti come la realtà aumentata (AR) e la realtà virtuale (VR) stanno iniziando a essere utilizzate per offrire esperienze di acquisto più immersive, consentendo ai consumatori di vedere e interagire con i prodotti in un ambiente virtuale.
-            </p>
-            <p>
-                Inoltre, la crescita del commercio mobile (mobile-commerce o m-commerce) sta diventando sempre più importante, con un numero crescente di consumatori che acquistano tramite smartphone. I pagamenti digitali, come i wallet elettronici e le criptovalute, continueranno a crescere e a migliorare la sicurezza e la velocità delle transazioni online.
-            </p>
-        </section>
-
-        <!-- Sezione Conclusioni -->
-        <section id="conclusioni">
-            <h2>7. Conclusioni</h2>
-            <p>
-                In conclusione, l'e-commerce è un fenomeno che ha cambiato profondamente il mondo degli acquisti e del commercio. Se da un lato offre una serie di vantaggi, come la possibilità di fare acquisti a qualsiasi ora e da qualsiasi luogo, dall'altro pone anche sfide, come la gestione della sicurezza e dei resi. Il futuro dell'e-commerce sarà probabilmente caratterizzato da innovazioni tecnologiche che renderanno l'esperienza di acquisto sempre più facile e personalizzata, mantenendo il commercio online al centro dell'economia globale.
-            </p>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Tesina di Alessandro Tremolada | Esame di Terza Media</p>
-    </footer>
+  <footer>
+    <p>© 2025 Alessandro Tremolada – Istituto Piamarta</p>
+  </footer>
 
 </body>
-
 </html>
