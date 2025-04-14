@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tesina E-commerce – Alessandro Tremolada</title>
+  <title>Tesina – Alessandro Tremolada</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
     body {
       font-family: 'Playfair Display', serif;
       margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      scroll-behavior: smooth;
+      background-color: #fdfdfd;
+      color: #2c2c2c;
+      line-height: 1.8;
     }
+
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: #2c2c2c;
+      background-color: #222;
+      padding: 10px 0;
       z-index: 1000;
     }
+
     nav ul {
       display: flex;
       justify-content: center;
@@ -28,189 +30,200 @@
       margin: 0;
       padding: 0;
     }
-    nav ul li a {
-      color: white;
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      color: #fff;
       text-decoration: none;
-      padding: 15px 20px;
-      display: block;
+      font-weight: bold;
     }
-    nav ul li a:hover {
-      background-color: #444;
+
+    nav a:hover {
+      text-decoration: underline;
     }
+
     header {
-      background-color: #1a1a1a;
-      color: white;
       text-align: center;
       padding: 100px 20px 40px;
-      margin-top: 60px;
+      background-color: #333;
+      color: white;
+      margin-top: 50px;
     }
-    section {
-      padding: 50px 20px;
-      max-width: 1000px;
+
+    main {
+      max-width: 900px;
       margin: auto;
+      padding: 20px;
     }
+
+    section {
+      margin-bottom: 60px;
+    }
+
     h2 {
-      font-size: 2.2em;
-      margin-bottom: 20px;
+      color: #444;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
     }
-    p {
-      font-size: 1.1em;
-      line-height: 1.6;
+
+    h3 {
+      color: #333;
+      margin-top: 30px;
     }
-    .chart {
-      width: 100%;
-      height: 400px;
-      margin-top: 20px;
-    }
+
     footer {
-      background-color: #2c2c2c;
+      background-color: #222;
       color: white;
       text-align: center;
-      padding: 30px 20px;
+      padding: 30px;
     }
+
     #welcome {
       position: fixed;
       top: 0;
       left: 0;
-      background: white;
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      background-color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       z-index: 9999;
-      animation: fadeOut 2s ease 2s forwards;
+      animation: fadeOut 2s ease forwards;
+      animation-delay: 2s;
     }
+
     #welcome h1 {
-      font-size: 3.5em;
+      font-size: 3em;
       color: #222;
-      animation: fadeIn 1s ease;
+      animation: fadeIn 2s ease forwards;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
+      to { opacity: 0; visibility: hidden; }
     }
   </style>
-  <script type="text/javascript">
-    google.charts.load('current', { packages: ['corechart', 'bar'] });
-    google.charts.setOnLoadCallback(drawCharts);
-    function drawCharts() {
-      drawChart('amazonChart', 'Amazon', [['2018', 150], ['2019', 200], ['2020', 280], ['2021', 350], ['2022', 450], ['2023', 500]]);
-      drawChart('ebayChart', 'eBay', [['2018', 90], ['2019', 110], ['2020', 130], ['2021', 125], ['2022', 140], ['2023', 145]]);
-      drawChart('etsyChart', 'Etsy', [['2018', 25], ['2019', 30], ['2020', 40], ['2021', 50], ['2022', 60], ['2023', 70]]);
-      drawChart('aliexpressChart', 'AliExpress', [['2018', 100], ['2019', 120], ['2020', 180], ['2021', 220], ['2022', 250], ['2023', 270]]);
-    }
-    function drawChart(id, title, dataRows) {
-      const data = google.visualization.arrayToDataTable([
-        ['Anno', 'Vendite ($ milioni)'], ...dataRows
-      ]);
-      const options = {
-        title: `Vendite Annuali - ${title}`,
-        chartArea: { width: '60%' },
-        hAxis: { title: 'Vendite ($ milioni)', minValue: 0 },
-        vAxis: { title: 'Anno' }
-      };
-      const chart = new google.visualization.BarChart(document.getElementById(id));
-      chart.draw(data, options);
-    }
-  </script>
 </head>
-
 <body>
 
-  <!-- Musica chill -->
+  <div id="welcome"><h1>Buongiorno a tutti</h1></div>
+
   <audio autoplay loop>
     <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
   </audio>
 
-  <!-- Animazione di benvenuto -->
-  <div id="welcome">
-    <h1>Buongiorno a tutti</h1>
-  </div>
-
-  <!-- Menu -->
   <nav>
     <ul>
       <li><a href="#introduzione">Introduzione</a></li>
       <li><a href="#piattaforme">Piattaforme</a></li>
-      <li><a href="#grafici">Grafici</a></li>
+      <li><a href="#trend-futuri">Trend Futuri</a></li>
+      <li><a href="#impatto-ambientale">Impatto Ambientale</a></li>
       <li><a href="#conclusione">Conclusione</a></li>
     </ul>
   </nav>
 
   <header>
     <h1>Alessandro Tremolada</h1>
-    <p>Tesina – E-commerce</p>
+    <p>Tesina sull'E-commerce – Istituto Piamarta</p>
   </header>
 
-  <section id="introduzione">
-    <h2>Introduzione all’E-commerce</h2>
-    <p>
-      L’e-commerce è il commercio elettronico, cioè l’acquisto e la vendita di beni o servizi tramite internet. Ha rivoluzionato il modo di fare business, offrendo comodità ai consumatori e nuove opportunità alle imprese.
-    </p>
-    <p>
-      Le principali tipologie sono:
+  <main>
+    <section id="introduzione">
+      <h2>Introduzione all’E-commerce</h2>
+      <p>
+        L’e-commerce, ovvero il commercio elettronico, è la pratica di acquistare e vendere beni e servizi tramite piattaforme digitali. Con l'espansione della rete Internet, l’e-commerce è diventato uno dei settori più dinamici e in rapida crescita nell’economia globale. Grazie all’accessibilità, la facilità di acquisto e la varietà di prodotti disponibili, milioni di consumatori nel mondo scelgono ogni giorno di fare acquisti online.
+      </p>
+      <p>
+        I principali modelli di e-commerce includono:
+        <ul>
+          <li><strong>B2C</strong> (Business to Consumer): Azienda che vende direttamente al consumatore finale.</li>
+          <li><strong>B2B</strong> (Business to Business): Transazioni tra due imprese.</li>
+          <li><strong>C2C</strong> (Consumer to Consumer): Transazioni tra consumatori tramite piattaforme terze.</li>
+          <li><strong>C2B</strong> (Consumer to Business): Consumatori che offrono servizi alle aziende.</li>
+        </ul>
+      </p>
+      <p>
+        L'e-commerce ha completamente rivoluzionato il modo in cui le aziende operano, favorendo l'accesso a mercati globali e aumentando la competitività. Le aziende ora devono considerare non solo il prezzo e la qualità dei loro prodotti, ma anche la user experience, la logistica, i metodi di pagamento sicuri e le politiche di reso.
+      </p>
+    </section>
+
+    <section id="piattaforme">
+      <h2>Piattaforme di E-commerce</h2>
+
+      <h3>Amazon</h3>
+      <p>
+        Amazon è il gigante dell’e-commerce a livello mondiale, che ha trasformato il commercio globale. Offre una vasta gamma di prodotti, dai libri all'elettronica, fino a prodotti per la casa e abbigliamento. Una delle sue forze principali è il servizio "Fulfillment by Amazon" (FBA), che permette ai venditori di affidare ad Amazon la gestione dell'inventario, la spedizione e il servizio clienti. Amazon guadagna sia dalle commissioni sulle vendite sia dai servizi di logistica.
+      </p>
+
+      <h3>eBay</h3>
+      <p>
+        eBay è noto per il suo modello di aste online, ma offre anche acquisti a prezzo fisso. La piattaforma permette a chiunque di vendere articoli nuovi e usati, coprendo una vasta gamma di categorie. eBay addebita commissioni sulle inserzioni e sulle vendite finali. La sua popolarità è dovuta alla possibilità di fare acquisti unici, spesso a prezzi più bassi rispetto ai negozi tradizionali.
+      </p>
+
+      <h3>Etsy</h3>
+      <p>
+        Etsy è una piattaforma specializzata nella vendita di articoli fatti a mano, vintage, e materiali per il fai-da-te. Gli acquirenti possono trovare prodotti unici e creativi. Etsy ha una forte comunità di venditori indipendenti e piccole imprese. Addebita commissioni sia sulle inserzioni che sulle vendite finali.
+      </p>
+
+      <h3>AliExpress</h3>
+      <p>
+        AliExpress è una piattaforma globale di commercio elettronico che collega acquirenti e venditori, principalmente dalla Cina. È noto per i suoi prezzi bassi e per l'ampia varietà di prodotti. Molti imprenditori utilizzano AliExpress per il dropshipping, poiché consente di vendere prodotti senza bisogno di mantenere un inventario fisico. La piattaforma guadagna tramite commissioni sulle vendite.
+      </p>
+
+      <h3>Shopify</h3>
+      <p>
+        Shopify è una piattaforma SaaS che permette alle aziende di creare il proprio negozio online personalizzato. Offre strumenti per la gestione dei prodotti, pagamenti, e analisi delle vendite. È particolarmente adatta a piccole e medie imprese che desiderano vendere direttamente ai consumatori senza dover utilizzare grandi marketplace come Amazon.
+      </p>
+
+      <h3>Zalando</h3>
+      <p>
+        Zalando è una delle principali piattaforme di e-commerce in Europa per moda e accessori. Con una vasta selezione di marchi, Zalando offre una piattaforma per acquisti comodi e veloci, supportata da spedizioni rapide e politiche di reso gratuite. È uno degli esempi più noti di come l’e-commerce possa essere utilizzato nel settore della moda.
+      </p>
+    </section>
+
+    <section id="trend-futuri">
+      <h2>Trend Futuri dell’E-commerce</h2>
+      <p>
+        L'e-commerce sta evolvendo rapidamente, e molti trend stanno emergendo che cambieranno il panorama nel prossimo decennio. Ecco alcuni dei principali trend futuri:
+      </p>
       <ul>
-        <li><strong>B2C</strong> – Business to Consumer</li>
-        <li><strong>B2B</strong> – Business to Business</li>
-        <li><strong>C2C</strong> – Consumer to Consumer</li>
+        <li><strong>M-commerce</strong>: L'e-commerce via dispositivi mobili è in costante crescita, grazie alla diffusione degli smartphone e delle app di acquisto. Gli utenti preferiscono fare acquisti tramite dispositivi portatili per la comodità di fare acquisti ovunque.</li>
+        <li><strong>Intelligenza Artificiale</strong>: L'IA aiuterà le aziende a personalizzare l'esperienza utente, come nei suggerimenti sui prodotti. I chatbot diventeranno strumenti di supporto sempre più diffusi per assistere i clienti.</li>
+        <li><strong>Realtà Aumentata</strong>: La realtà aumentata (AR) offrirà un’esperienza di acquisto più immersiva. I clienti potranno provare virtualmente i prodotti prima di acquistare, migliorando la soddisfazione e riducendo i resi.</li>
+        <li><strong>Spedizioni e Logistica Sostenibile</strong>: Con l’aumento delle vendite online, cresce anche l'impatto ambientale. Le aziende stanno cercando soluzioni per rendere più ecologiche le spedizioni, come l’uso di imballaggi riciclabili e la compensazione delle emissioni di carbonio.</li>
       </ul>
-    </p>
-  </section>
+    </section>
 
-  <section id="piattaforme">
-    <h2>Piattaforme principali</h2>
-    <h3>Amazon</h3>
-    <p>
-      Il più grande marketplace globale. I venditori usano FBA per delegare logistica e spedizione. Amazon trattiene commissioni sulle vendite.
-    </p>
+    <section id="impatto-ambientale">
+      <h2>Impatto Ambientale e Sociale</h2>
+      <p>
+        L'e-commerce, pur portando vantaggi economici, ha anche impatti ambientali e sociali che non possono essere ignorati. Tra questi:
+      </p>
+      <ul>
+        <li><strong>Emissioni di CO2</strong>: La logistica e le spedizioni rapide generano grandi quantità di emissioni. Alcuni studi suggeriscono che le consegne velocizzate e i resi frequenti abbiano un impatto significativo sull’ambiente.</li>
+        <li><strong>Produzione di rifiuti</strong>: L’imballaggio dei prodotti è una fonte significativa di rifiuti plastici. Alcune piattaforme stanno cercando soluzioni più ecologiche, ma resta un problema da risolvere.</li>
+        <li><strong>Disparità nel commercio digitale</strong>: Mentre l’e-commerce apre nuove opportunità, esiste ancora una disparità tra chi ha accesso a Internet e chi no, specialmente nelle aree rurali o nei paesi in via di sviluppo.</li>
+      </ul>
+      <p>
+        Fortunatamente, molte piattaforme e aziende stanno cercando soluzioni per ridurre questi impatti, come l'adozione di energie rinnovabili e il miglioramento delle pratiche di imballaggio.
+      </p>
+    </section>
 
-    <h3>eBay</h3>
-    <p>
-      Consente vendite tramite aste o prezzo fisso. Ideale anche per l’usato. I venditori pagano una percentuale sul valore finale.
-    </p>
-
-    <h3>Etsy</h3>
-    <p>
-      Specializzato in artigianato, handmade e vintage. Etsy addebita una piccola tariffa di inserzione e una commissione sulle vendite.
-    </p>
-
-    <h3>AliExpress</h3>
-    <p>
-      Parte del gruppo Alibaba, collega venditori cinesi con il resto del mondo. Usato per dropshipping, con prezzi molto competitivi.
-    </p>
-
-    <h3>Shopify</h3>
-    <p>
-      Permette di creare un proprio negozio online. Offre autonomia totale, ma è necessario gestire tutto: prodotti, pagamenti, spedizioni.
-    </p>
-
-    <h3>Taobao</h3>
-    <p>
-      Marketplace cinese simile ad Amazon, ma più focalizzato sul mercato asiatico. Gestito da Alibaba Group.
-    </p>
-  </section>
-
-  <section id="grafici">
-    <h2>Grafici di Vendita Annuale</h2>
-    <div id="amazonChart" class="chart"></div>
-    <div id="ebayChart" class="chart"></div>
-    <div id="etsyChart" class="chart"></div>
-    <div id="aliexpressChart" class="chart"></div>
-  </section>
-
-  <section id="conclusione">
-    <h2>Conclusione</h2>
-    <p>
-      L'e-commerce è in continua crescita. Le aziende devono adattarsi ai nuovi comportamenti dei consumatori, offrendo esperienze digitali sempre più personalizzate ed efficienti. Il futuro sarà sempre più automatizzato, globale e centrato sul cliente.
-    </p>
-  </section>
+    <section id="conclusione">
+      <h2>Conclusione</h2>
+      <p>
+        L'e-commerce è una parte fondamentale della nostra vita quotidiana e continuerà a crescere nei prossimi anni. Nonostante le sfide ambientali e sociali, il suo potenziale di trasformazione economica è enorme. Per le aziende, rimanere al passo con le nuove tecnologie e sviluppare pratiche commerciali sostenibili sarà essenziale per avere successo nel futuro.
+      </p>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 Alessandro Tremolada – Istituto Piamarta</p>
