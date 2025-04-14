@@ -80,7 +80,6 @@
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
-      display: none;
     }
 
     .section {
@@ -253,10 +252,15 @@
     }, 4000);
 
     function showSection(sectionId) {
+      // Nascondi tutte le sezioni
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => section.classList.remove('active-section'));
+      // Mostra la sezione selezionata
       document.getElementById(sectionId).classList.add('active-section');
     }
+
+    // Mostra la sezione "Introduzione" per default
+    showSection('introduzione');
   </script>
 
 </body>
