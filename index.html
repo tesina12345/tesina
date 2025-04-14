@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tesina E-commerce – Alessandro Tremolada</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Inclusione di Chart.js -->
   <style>
     body {
       font-family: "Georgia", serif;
@@ -162,6 +163,12 @@
         opacity: 1;
       }
     }
+
+    /* Stilizzazione del grafico */
+    .chart-container {
+      width: 80%;
+      margin: 40px auto;
+    }
   </style>
 </head>
 <body>
@@ -228,17 +235,47 @@
       <h3>eBay</h3>
       <p>eBay è una piattaforma che consente la vendita tramite aste o prezzo fisso. È adatta per oggetti usati, da collezione e rari, ma anche per prodotti nuovi. I venditori possono stabilire il prezzo o optare per un'asta, consentendo agli acquirenti di fare offerte. eBay addebita una commissione sulle vendite finali, che varia a seconda della categoria del prodotto. È una delle prime piattaforme che ha introdotto il concetto di marketplace online.</p>
 
-      <h3>Etsy</h3>
-      <p>Etsy è una piattaforma di e-commerce orientata principalmente ai prodotti fatti a mano, vintage e artigianali. Molti venditori sono piccole imprese o artigiani indipendenti che usano Etsy come vetrina per vendere i loro prodotti. Etsy addebita una tariffa per ogni annuncio pubblicato e una commissione sulla vendita. Inoltre, offre strumenti integrati per la gestione del negozio e per la promozione del brand.</p>
+      <h3>Grafico delle vendite per marketplace</h3>
+      <div class="chart-container">
+        <canvas id="marketplaceChart"></canvas>
+      </div>
 
-      <h3>AliExpress</h3>
-      <p>AliExpress è una piattaforma di e-commerce che fa parte del gruppo Alibaba, orientata principalmente all'esportazione di prodotti cinesi a prezzi molto competitivi. AliExpress offre una vasta gamma di prodotti a basso costo, spesso acquistati tramite dropshipping. La piattaforma si è fatta notare per la possibilità di acquistare prodotti a prezzi estremamente bassi, ma con tempi di spedizione più lunghi rispetto ad altri marketplace occidentali.</p>
-
-      <h3>Shopify</h3>
-      <p>Shopify non è un marketplace, ma una piattaforma per creare il proprio negozio online. Consente alle aziende di configurare un sito web di e-commerce personalizzato, con funzionalità avanzate per la gestione degli ordini, il marketing e l'analisi dei dati. Shopify è perfetto per coloro che vogliono avere il controllo completo sul proprio marchio e sulle operazioni di vendita online, senza dover dipendere da un marketplace esterno.</p>
-
-      <h3>Taobao</h3>
-      <p>Taobao è una delle piattaforme di e-commerce più grandi in Cina, ed è di proprietà del gruppo Alibaba. A differenza di Amazon, Taobao non si concentra principalmente su vendite a livello globale, ma è orientato al mercato cinese. È un modello B2C e C2C, dove sia le piccole imprese che i consumatori possono vendere prodotti. La piattaforma è altamente integrata con i servizi di pagamento di Alipay, che consente pagamenti facili e sicuri.</p>
+      <script>
+        // Dati di vendita reali (approssimativi) per i marketplace
+        const ctx = document.getElementById('marketplaceChart').getContext('2d');
+        const marketplaceChart = new Chart(ctx, {
+          type: 'pie', // Cambiato in grafico a torta
+          data: {
+            labels: ['Amazon', 'eBay', 'Etsy', 'AliExpress', 'Shopify', 'Taobao'], // Etichette dei marketplace
+            datasets: [{
+              label: 'Vendite (in miliardi di $)',
+              data: [470, 84, 13, 80, 50, 38], // Dati di vendita per ogni marketplace (in miliardi di dollari)
+              backgroundColor: [
+                '#FF5733', '#33FF57', '#3357FF', '#F0F033', '#8F33FF', '#FF33A0'
+              ], // Colori delle fette
+              borderColor: [
+                '#FF5733', '#33FF57', '#3357FF', '#F0F033', '#8F33FF', '#FF33A0'
+              ], // Colori di bordo
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(tooltipItem) {
+                    return tooltipItem.label + ': $' + tooltipItem.raw + 'M';
+                  }
+                }
+              }
+            }
+          }
+        });
+      </script>
     </section>
   </main>
 
