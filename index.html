@@ -1,233 +1,120 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tesina – Alessandro Tremolada</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Playfair Display', serif;
-      margin: 0;
-      background-color: #fdfdfd;
-      color: #2c2c2c;
-      line-height: 1.8;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #222;
-      padding: 10px 0;
-      z-index: 1000;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav li {
-      margin: 0 15px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      text-align: center;
-      padding: 100px 20px 40px;
-      background-color: #333;
-      color: white;
-      margin-top: 50px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    h2 {
-      color: #444;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-
-    h3 {
-      color: #333;
-      margin-top: 30px;
-    }
-
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 30px;
-    }
-
-    #welcome {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      animation: fadeOut 2s ease forwards;
-      animation-delay: 2s;
-    }
-
-    #welcome h1 {
-      font-size: 3em;
-      color: #222;
-      animation: fadeIn 2s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida all'E-commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #34495e;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .content-section {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        ol {
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="welcome"><h1>Buongiorno a tutti</h1></div>
+<header>
+    <h1>Guida all'E-commerce</h1>
+    <p>Scopri tutto quello che c'è da sapere sull'e-commerce!</p>
+</header>
 
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
-  </audio>
+<section class="content-section">
+    <h2>Introduzione</h2>
+    <p>Il commercio elettronico, o e-commerce, è diventato uno degli ambiti più rilevanti nell'economia globale. Con la crescita dei consumi online, l'e-commerce ha trasformato radicalmente le modalità di acquisto, rendendo i prodotti e i servizi accessibili in modo immediato e a livello globale. La diffusione di Internet e dei dispositivi mobili ha contribuito in maniera determinante all'espansione di questo settore, portando a nuove opportunità per imprese e consumatori.</p>
+</section>
 
-  <nav>
+<section class="content-section">
+    <h2>Cos'è l'E-commerce?</h2>
+    <p>L'e-commerce significa commercio online, un negozio digitale che permette di vendere prodotti senza la necessità di un negozio fisico o magazzino.</p>
+</section>
+
+<section class="content-section">
+    <h2>Strategie per Vendere</h2>
+    <p>Le migliori strategie per vendere online comprendono la pubblicità mirata e la creazione di video promozionali che siano adatti al prodotto. Ad esempio, per un pubblico giovane, è possibile creare video divertenti ma informativi sul prodotto.</p>
+</section>
+
+<section class="content-section">
+    <h2>Vari Siti per Vendere</h2>
+    <p>Esistono molte piattaforme per vendere online. I principali sono Shopify, Amazon, eBay, Vinted, Etsy, e molti altri. Ogni piattaforma ha i suoi vantaggi:</p>
     <ul>
-      <li><a href="#introduzione">Introduzione</a></li>
-      <li><a href="#piattaforme">Piattaforme</a></li>
-      <li><a href="#trend-futuri">Trend Futuri</a></li>
-      <li><a href="#impatto-ambientale">Impatto Ambientale</a></li>
-      <li><a href="#conclusione">Conclusione</a></li>
+        <li><strong>Shopify:</strong> Crea un sito personalizzato facilmente.</li>
+        <li><strong>Amazon:</strong> Vendi tramite il programma FBA.</li>
+        <li><strong>eBay:</strong> Vendita diretta senza necessità di creare un sito.</li>
+        <li><strong>Vinted:</strong> Un'app mobile per vendere articoli in modo sicuro.</li>
+        <li><strong>Ali Express:</strong> Acquista e rivendi prodotti da piccole imprese cinesi.</li>
+        <li><strong>Magento:</strong> CMS open-source per creare negozi online complessi.</li>
+        <li><strong>WooCommerce:</strong> Plugin open-source per WordPress, ideale per piccole e medie aziende.</li>
     </ul>
-  </nav>
+</section>
 
-  <header>
-    <h1>Alessandro Tremolada</h1>
-    <p>Tesina sull'E-commerce – Istituto Piamarta</p>
-  </header>
+<section class="content-section">
+    <h2>Cos’è la Partita IVA?</h2>
+    <p>La partita IVA è un numero che ti viene assegnato dallo Stato per identificarti come lavoratore autonomo o come azienda. È essenziale per avviare un'attività commerciale o lavorare come freelance.</p>
+</section>
 
-  <main>
-    <section id="introduzione">
-      <h2>Introduzione all’E-commerce</h2>
-      <p>
-        L’e-commerce, ovvero il commercio elettronico, è la pratica di acquistare e vendere beni e servizi tramite piattaforme digitali. Con l'espansione della rete Internet, l’e-commerce è diventato uno dei settori più dinamici e in rapida crescita nell’economia globale. Grazie all’accessibilità, la facilità di acquisto e la varietà di prodotti disponibili, milioni di consumatori nel mondo scelgono ogni giorno di fare acquisti online.
-      </p>
-      <p>
-        I principali modelli di e-commerce includono:
-        <ul>
-          <li><strong>B2C</strong> (Business to Consumer): Azienda che vende direttamente al consumatore finale.</li>
-          <li><strong>B2B</strong> (Business to Business): Transazioni tra due imprese.</li>
-          <li><strong>C2C</strong> (Consumer to Consumer): Transazioni tra consumatori tramite piattaforme terze.</li>
-          <li><strong>C2B</strong> (Consumer to Business): Consumatori che offrono servizi alle aziende.</li>
-        </ul>
-      </p>
-      <p>
-        L'e-commerce ha completamente rivoluzionato il modo in cui le aziende operano, favorendo l'accesso a mercati globali e aumentando la competitività. Le aziende ora devono considerare non solo il prezzo e la qualità dei loro prodotti, ma anche la user experience, la logistica, i metodi di pagamento sicuri e le politiche di reso.
-      </p>
-    </section>
+<section class="content-section">
+    <h2>Cosa è l'IVA?</h2>
+    <p>L'IVA (Imposta sul Valore Aggiunto) è una tassa che si applica sui prodotti e servizi acquistati. Quando acquisti un prodotto, l'IVA rappresenta la parte che paghi in più rispetto al prezzo base e va allo Stato.</p>
+</section>
 
-    <section id="piattaforme">
-      <h2>Piattaforme di E-commerce</h2>
+<section class="content-section">
+    <h2>Come Creare un Bot Automatizzato</h2>
+    <p>Un bot automatizzato può assistere i clienti, rispondere a domande frequenti, supportare le vendite e raccogliere ordini. Ecco come crearne uno:</p>
+    <ol>
+        <li>Registrati su una piattaforma come Tidio o ManyChat.</li>
+        <li>Scegli un modello di chatbot adatto alle tue esigenze.</li>
+        <li>Personalizza il flusso di conversazione con risposte automatiche.</li>
+        <li>Aggiungi integrazioni con il tuo e-commerce.</li>
+        <li>Testa il bot per assicurarti che funzioni correttamente.</li>
+    </ol>
+</section>
 
-      <h3>Amazon</h3>
-      <p>
-        Amazon è il gigante dell’e-commerce a livello mondiale, che ha trasformato il commercio globale. Offre una vasta gamma di prodotti, dai libri all'elettronica, fino a prodotti per la casa e abbigliamento. Una delle sue forze principali è il servizio "Fulfillment by Amazon" (FBA), che permette ai venditori di affidare ad Amazon la gestione dell'inventario, la spedizione e il servizio clienti. Amazon guadagna sia dalle commissioni sulle vendite sia dai servizi di logistica.
-      </p>
+<section class="content-section">
+    <h2>Come Scrivere una Descrizione Convincente per un Prodotto</h2>
+    <p>Una descrizione convincente dovrebbe evidenziare le caratteristiche uniche del prodotto, come la stabilità delle reti, la presenza di IPv6, un firewall incluso o altre funzionalità speciali che lo distinguono dalla concorrenza.</p>
+</section>
 
-      <h3>eBay</h3>
-      <p>
-        eBay è noto per il suo modello di aste online, ma offre anche acquisti a prezzo fisso. La piattaforma permette a chiunque di vendere articoli nuovi e usati, coprendo una vasta gamma di categorie. eBay addebita commissioni sulle inserzioni e sulle vendite finali. La sua popolarità è dovuta alla possibilità di fare acquisti unici, spesso a prezzi più bassi rispetto ai negozi tradizionali.
-      </p>
-
-      <h3>Etsy</h3>
-      <p>
-        Etsy è una piattaforma specializzata nella vendita di articoli fatti a mano, vintage, e materiali per il fai-da-te. Gli acquirenti possono trovare prodotti unici e creativi. Etsy ha una forte comunità di venditori indipendenti e piccole imprese. Addebita commissioni sia sulle inserzioni che sulle vendite finali.
-      </p>
-
-      <h3>AliExpress</h3>
-      <p>
-        AliExpress è una piattaforma globale di commercio elettronico che collega acquirenti e venditori, principalmente dalla Cina. È noto per i suoi prezzi bassi e per l'ampia varietà di prodotti. Molti imprenditori utilizzano AliExpress per il dropshipping, poiché consente di vendere prodotti senza bisogno di mantenere un inventario fisico. La piattaforma guadagna tramite commissioni sulle vendite.
-      </p>
-
-      <h3>Shopify</h3>
-      <p>
-        Shopify è una piattaforma SaaS che permette alle aziende di creare il proprio negozio online personalizzato. Offre strumenti per la gestione dei prodotti, pagamenti, e analisi delle vendite. È particolarmente adatta a piccole e medie imprese che desiderano vendere direttamente ai consumatori senza dover utilizzare grandi marketplace come Amazon.
-      </p>
-
-      <h3>Zalando</h3>
-      <p>
-        Zalando è una delle principali piattaforme di e-commerce in Europa per moda e accessori. Con una vasta selezione di marchi, Zalando offre una piattaforma per acquisti comodi e veloci, supportata da spedizioni rapide e politiche di reso gratuite. È uno degli esempi più noti di come l’e-commerce possa essere utilizzato nel settore della moda.
-      </p>
-    </section>
-
-    <section id="trend-futuri">
-      <h2>Trend Futuri dell’E-commerce</h2>
-      <p>
-        L'e-commerce sta evolvendo rapidamente, e molti trend stanno emergendo che cambieranno il panorama nel prossimo decennio. Ecco alcuni dei principali trend futuri:
-      </p>
-      <ul>
-        <li><strong>M-commerce</strong>: L'e-commerce via dispositivi mobili è in costante crescita, grazie alla diffusione degli smartphone e delle app di acquisto. Gli utenti preferiscono fare acquisti tramite dispositivi portatili per la comodità di fare acquisti ovunque.</li>
-        <li><strong>Intelligenza Artificiale</strong>: L'IA aiuterà le aziende a personalizzare l'esperienza utente, come nei suggerimenti sui prodotti. I chatbot diventeranno strumenti di supporto sempre più diffusi per assistere i clienti.</li>
-        <li><strong>Realtà Aumentata</strong>: La realtà aumentata (AR) offrirà un’esperienza di acquisto più immersiva. I clienti potranno provare virtualmente i prodotti prima di acquistare, migliorando la soddisfazione e riducendo i resi.</li>
-        <li><strong>Spedizioni e Logistica Sostenibile</strong>: Con l’aumento delle vendite online, cresce anche l'impatto ambientale. Le aziende stanno cercando soluzioni per rendere più ecologiche le spedizioni, come l’uso di imballaggi riciclabili e la compensazione delle emissioni di carbonio.</li>
-      </ul>
-    </section>
-
-    <section id="impatto-ambientale">
-      <h2>Impatto Ambientale e Sociale</h2>
-      <p>
-        L'e-commerce, pur portando vantaggi economici, ha anche impatti ambientali e sociali che non possono essere ignorati. Tra questi:
-      </p>
-      <ul>
-        <li><strong>Emissioni di CO2</strong>: La logistica e le spedizioni rapide generano grandi quantità di emissioni. Alcuni studi suggeriscono che le consegne velocizzate e i resi frequenti abbiano un impatto significativo sull’ambiente.</li>
-        <li><strong>Produzione di rifiuti</strong>: L’imballaggio dei prodotti è una fonte significativa di rifiuti plastici. Alcune piattaforme stanno cercando soluzioni più ecologiche, ma resta un problema da risolvere.</li>
-        <li><strong>Disparità nel commercio digitale</strong>: Mentre l’e-commerce apre nuove opportunità, esiste ancora una disparità tra chi ha accesso a Internet e chi no, specialmente nelle aree rurali o nei paesi in via di sviluppo.</li>
-      </ul>
-      <p>
-        Fortunatamente, molte piattaforme e aziende stanno cercando soluzioni per ridurre questi impatti, come l'adozione di energie rinnovabili e il miglioramento delle pratiche di imballaggio.
-      </p>
-    </section>
-
-    <section id="conclusione">
-      <h2>Conclusione</h2>
-      <p>
-        L'e-commerce è una parte fondamentale della nostra vita quotidiana e continuerà a crescere nei prossimi anni. Nonostante le sfide ambientali e sociali, il suo potenziale di trasformazione economica è enorme. Per le aziende, rimanere al passo con le nuove tecnologie e sviluppare pratiche commerciali sostenibili sarà essenziale per avere successo nel futuro.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Alessandro Tremolada – Istituto Piamarta</p>
-  </footer>
+<footer>
+    <p>&copy; 2025 Guida all'E-commerce. Tutti i diritti riservati.</p>
+</footer>
 
 </body>
 </html>
